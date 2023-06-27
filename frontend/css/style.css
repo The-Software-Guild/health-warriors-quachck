@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'gilroy';
+  src: url('../fonts/gilroy-regular.woff') format('woff');
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'gilroy', Arial, sans-serif;
+}
+
+footer {
+  margin-top: auto;
+}
+
+#create-recipe-btn {
+  background-color: #28a745;
+  border-radius: 5px;
+  transition: transform 0.1s ease-in-out;
+  font-weight: 900;
+  font-size: larger;
+}
+
+#create-recipe-btn:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+#create-recipe-btn:active {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transform: translateY(1px);
+}
+
+.clickable-card:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.01);
+}
+
+.card {
+  height: 100%;
+}
+
+.card-img-top {
+  height: 60%;
+  object-fit: cover;
+}
+
+.card-body {
+  position: relative;
+  height: 40%;
+  overflow: auto;
+}
+
+.card-text {
+  position: absolute;
+  bottom: 0;
+}
+

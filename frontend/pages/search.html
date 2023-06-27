@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script
+      defer
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+    ></script>
+    <script
+      defer
+      src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <script defer src="../js/auth.js"></script>
+    <script
+      defer
+      src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+    ></script>
+    <script defer src="../js/search.js"></script>
+
+    <title>Search</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <!-- Left side -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="sharedrecipes.html">Shared Recipes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="search.html">Search Recipes</a>
+            </li>
+          </ul>
+
+          <!-- Middle of Navbar -->
+          <ul
+            class="navbar-nav mx-auto d-flex justify-content-center"
+            style="position: absolute; left: 50%; transform: translateX(-50%)"
+          >
+            <li class="nav-item" style="display: none" id="create-recipe-btn">
+              <a class="nav-link btn-create-recipe" href="createrecipe.html"
+                >Create Recipe</a
+              >
+            </li>
+          </ul>
+
+          <!-- Right side -->
+          <ul class="navbar-nav ms-auto" id="user-nav">
+            <li class="nav-item" id="user-recipes">
+              <a class="nav-link" href="userrecipes.html">Your Recipes</a>
+            </li>
+            <li class="nav-item" id="login-button">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+            <li class="nav-item" id="signup-button">
+              <a class="nav-link" href="signup.html">Sign Up</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1 class="mt-5 mb-4 text-center">Recipe Finder</h1>
+
+      <div class="dropdown mb-3">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Refine Search
+        </button>
+        <div class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton">
+          <div class="row">
+            <div class="col-md-6">
+              <h6 class="dropdown-header">Health</h6>
+              <div class="form-check dropdown-item">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="alcohol-free"
+                  id="alcoholFree"
+                  name="health"
+                />
+                <label class="form-check-label" for="alcoholFree">
+                  Alcohol-Free
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="dairy-free"
+                  id="dairy-free"
+                  name="health"
+                />
+                <label class="form-check-label" for="dairyFree">
+                  Dairy-Free
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="egg-free"
+                  id="egg-free"
+                  name="health"
+                />
+                <label class="form-check-label" for="eggFree"> Egg-Free </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="vegan"
+                  id="vegan"
+                  name="health"
+                />
+                <label class="form-check-label" for="vegan"> Vegan </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="vegetarian"
+                  id="vegetarian"
+                  name="health"
+                />
+                <label class="form-check-label" for="vegetarian">
+                  Vegetarian
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="low-sugar"
+                  id="low-sugar"
+                  name="health"
+                />
+                <label class="form-check-label" for="lowSugar">
+                  Low-Sugar
+                </label>
+              </div>
+            </div>
+
+            <!-- Add more health checkboxes here -->
+            <div class="col-md-6">
+              <h6 class="dropdown-header">Diet</h6>
+              <div class="form-check dropdown-item">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="balanced"
+                  id="balanced"
+                  name="diet"
+                />
+                <label class="form-check-label" for="balanced">
+                  Balanced
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="high-fiber"
+                  id="high-fiber"
+                  name="diet"
+                />
+                <label class="form-check-label" for="highFiber">
+                  High-Fiber
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="high-protein"
+                  id="high-protein"
+                  name="diet"
+                />
+                <label class="form-check-label" for="highProtein">
+                  High-Protein
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="low-carb"
+                  id="low-carb"
+                  name="diet"
+                />
+                <label class="form-check-label" for="lowCarb"> Low-Carb </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="low-fat"
+                  id="low-fat"
+                  name="diet"
+                />
+                <label class="form-check-label" for="lowFat"> Low-Fat </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="low-sodium"
+                  id="low-sodium"
+                  name="diet"
+                />
+                <label class="form-check-label" for="lowSodium">
+                  Low-Sodium
+                </label>
+              </div>
+            </div>
+
+            <div class="col-md-6 mt-3">
+              <h6 class="dropdown-header">Calorie Range</h6>
+              <div id="slider-range"></div>
+              <p>
+                <input type="text" id="amount" readonly style="border: 0" />
+              </p>
+            </div>
+
+            <!-- Add more diet checkboxes here -->
+          </div>
+        </div>
+      </div>
+
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          id="recipeInput"
+          class="form-control"
+          placeholder="Enter recipe name..."
+        />
+        <div class="input-group-append">
+          <button class="btn btn-primary" id="searchButton">Search</button>
+        </div>
+      </div>
+
+      <div id="recipeContainer" class="row"></div>
+    </div>
+
+    <footer
+      class="footer bg-light text-center d-flex align-items-center justify-content-center"
+      style="height: 40px"
+    >
+      <p class="mb-0">&copy; 2023 My Recipe App.</p>
+    </footer>
+  </body>
+</html>
